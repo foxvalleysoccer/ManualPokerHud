@@ -26,6 +26,15 @@ public class StatsManager : MonoBehaviour
     public GameObject addplayer;
     public GameObject removeplayer;
 
+    public GameObject player0;
+    public GameObject player1;
+    public GameObject player2;
+    public GameObject player3;
+    public GameObject player4;
+    public GameObject player5;
+    public GameObject player6;
+    public GameObject player7;
+    public GameObject player8;
     public void Start()
     {
         removeplayer.SetActive(false);
@@ -141,15 +150,45 @@ public class StatsManager : MonoBehaviour
     {
         //For each player update the stats?
         Player curentplayer = AllPlayers[playerNumber];
-        Player1PFR.text = curentplayer.PreFlopRaisePercent.ToString();
-        Player1Vpip.text = curentplayer.VPIPPercent.ToString();
-        Player1FoldBlinds.text = curentplayer.FoldBlindsCount.ToString();
-        Player1LimpFold.text = curentplayer.LimpFoldCount.ToString();
-        Player1FoldToCBet.text = curentplayer.FoldToCBetCount.ToString();
-        Player1CallCbet.text = curentplayer.CallCbetCount.ToString();
-        TotalHandsTextBox.text = curentplayer.TotalHandsPlayed.ToString();
+
+        if (playerNumber == 0)
+        {
+            player0.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+        }
+        else if (playerNumber == 1)
+        {
+            player1.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+        }
+        else if (playerNumber == 2)
+        {
+            player2.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+        }
+        else if (playerNumber == 3)
+        {
+            player3.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+        }
+        else if (playerNumber == 4)
+        {
+            player4.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+        }
+        else if (playerNumber == 5)
+        {
+            player5.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+        }
+        else if (playerNumber == 6)
+        {
+            player6.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+        }
+        else if (playerNumber == 7)
+        {
+            player7.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+        }
+        else if (playerNumber == 8)
+        {
+            player8.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+        }
     }
-    public void ClearDataFromScreen(int playerNumber)
+        public void ClearDataFromScreen(int playerNumber)
     {
         Player1PFR.text = "";
         Player1Vpip.text = "";
