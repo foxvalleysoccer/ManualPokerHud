@@ -38,6 +38,7 @@ public class StatsManager : MonoBehaviour
     public void Start()
     {
         removeplayer.SetActive(false);
+        hands.text = "Total Hands 1";
     }
     public void ToggleAddRemoveButton()
     {
@@ -56,7 +57,7 @@ public class StatsManager : MonoBehaviour
     public void Incrimenthands()
     {
         totalhandsCount += 1;
-        hands.text = "Totalhands= " + totalhandsCount.ToString();
+        hands.text = "Total Hands= " + totalhandsCount.ToString();
 
         //Incriment total hands played by all players
         AddHandToCurrentPlayers();
