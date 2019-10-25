@@ -12,8 +12,9 @@ public class UpdateMyTextFields : MonoBehaviour
     public Text LimpFold;
     public Text foldToCbet;
     public Text callCbet;
-
-    public void UpdateTextFields(Player player)
+    public int playerNubmer;
+    public StatsManager sM;
+    public void UpdateTextFieldsPlease(Player player)
     {
         totalHands.text = player.TotalHandsPlayed.ToString();
         Vpip.text = player.VPIPPercent.ToString();
@@ -23,15 +24,15 @@ public class UpdateMyTextFields : MonoBehaviour
         foldToCbet.text = player.FoldToCBetCount.ToString();
         callCbet.text = player.CallCbetCount.ToString();
     }
-    // Start is called before the first frame update
-    void Start()
+    public void ChangeMyTextFields()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        Player player = sM.GetAPlayer(playerNubmer);
+        totalHands.text = player.TotalHandsPlayed.ToString();
+        Vpip.text = player.VPIPPercent.ToString();
+        PFR.text = player.PreFlopRaisePercent.ToString();
+        LimpFold.text = player.LimpFoldCount.ToString();
+        foldBlinds.text = player.FoldBlindsCount.ToString();
+        foldToCbet.text = player.FoldToCBetCount.ToString();
+        callCbet.text = player.CallCbetCount.ToString();
     }
 }

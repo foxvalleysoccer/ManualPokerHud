@@ -40,19 +40,7 @@ public class StatsManager : MonoBehaviour
         removeplayer.SetActive(false);
         hands.text = "Total Hands 1";
     }
-    public void ToggleAddRemoveButton()
-    {
-        if (removeplayer.activeSelf == false)
-        {
-            addplayer.SetActive(false);
-            removeplayer.SetActive(true);
-        }
-        else
-        {
-            addplayer.SetActive(true);
-            removeplayer.SetActive(false);
-        }
-    }
+
 
     public void Incrimenthands()
     {
@@ -61,12 +49,12 @@ public class StatsManager : MonoBehaviour
 
         //Incriment total hands played by all players
         AddHandToCurrentPlayers();
-       // AdjustAllPlayersStats();
+        // AdjustAllPlayersStats();
     }
 
     private void AdjustAllPlayersStats()
     {
-       
+
     }
 
     public void AddHandToCurrentPlayers()
@@ -89,17 +77,17 @@ public class StatsManager : MonoBehaviour
         pl.TotalHandsPlayed = 1;
         pl.PreFlopRaiseCount = 0;
         AllPlayers.Add(pl);
-        ToggleAddRemoveButton();
+
     }
     public void RemovePlayer(int position)
     {
-        AllPlayers.RemoveAt(position);
+
 
         //Clear out data in text boxes
         ClearDataFromScreen(position);
         //Call some function to Save that players data for future
+        AllPlayers.RemoveAt(position);
 
-        ToggleAddRemoveButton();
     }
     public void CalculateVPIP(int playerNumber)
     {
@@ -126,7 +114,7 @@ public class StatsManager : MonoBehaviour
     {
         Player currentplayer = AllPlayers[playerNumber];
         currentplayer.LimpFoldCount += 1;
-        currentplayer.LimpFoldPercent = currentplayer.LimpFoldCount / currentplayer.TotalHandsPlayed*100;
+        currentplayer.LimpFoldPercent = currentplayer.LimpFoldCount / currentplayer.TotalHandsPlayed * 100;
         UpdatePlayersStats(playerNumber);
     }
     public void FoldToCbet(int playerNumber)
@@ -154,42 +142,42 @@ public class StatsManager : MonoBehaviour
 
         if (playerNumber == 0)
         {
-            player0.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+            player0.GetComponent<UpdateMyTextFields>().UpdateTextFieldsPlease(curentplayer);
         }
         else if (playerNumber == 1)
         {
-            player1.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+            player1.GetComponent<UpdateMyTextFields>().UpdateTextFieldsPlease(curentplayer);
         }
         else if (playerNumber == 2)
         {
-            player2.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+            player2.GetComponent<UpdateMyTextFields>().UpdateTextFieldsPlease(curentplayer);
         }
         else if (playerNumber == 3)
         {
-            player3.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+            player3.GetComponent<UpdateMyTextFields>().UpdateTextFieldsPlease(curentplayer);
         }
         else if (playerNumber == 4)
         {
-            player4.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+            player4.GetComponent<UpdateMyTextFields>().UpdateTextFieldsPlease(curentplayer);
         }
         else if (playerNumber == 5)
         {
-            player5.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+            player5.GetComponent<UpdateMyTextFields>().UpdateTextFieldsPlease(curentplayer);
         }
         else if (playerNumber == 6)
         {
-            player6.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+            player6.GetComponent<UpdateMyTextFields>().UpdateTextFieldsPlease(curentplayer);
         }
         else if (playerNumber == 7)
         {
-            player7.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+            player7.GetComponent<UpdateMyTextFields>().UpdateTextFieldsPlease(curentplayer);
         }
         else if (playerNumber == 8)
         {
-            player8.GetComponent<UpdateMyTextFields>().UpdateTextFields(curentplayer);
+            player8.GetComponent<UpdateMyTextFields>().UpdateTextFieldsPlease(curentplayer);
         }
     }
-        public void ClearDataFromScreen(int playerNumber)
+    public void ClearDataFromScreen(int playerNumber)
     {
         Player1PFR.text = "";
         Player1Vpip.text = "";
@@ -198,8 +186,13 @@ public class StatsManager : MonoBehaviour
         Player1FoldToCBet.text = "";
         Player1CallCbet.text = "";
         TotalHandsTextBox.text = "";
-        
+
         player1name.text = "";
+    }
+    public Player GetAPlayer(int playerNumber)
+    {
+        var pl = AllPlayers[playerNumber];
+        return new Player();
     }
 }
 public class Player
