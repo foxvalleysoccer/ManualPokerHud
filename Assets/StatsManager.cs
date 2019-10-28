@@ -76,7 +76,7 @@ public class StatsManager : MonoBehaviour
         pl.FoldBlindsCount = 0;
         pl.TotalHandsPlayed = 1;
         pl.PreFlopRaiseCount = 0;
-        AllPlayers.Add(pl);
+        AllPlayers.Insert(position,pl);
 
     }
     public void RemovePlayer(int position)
@@ -86,7 +86,7 @@ public class StatsManager : MonoBehaviour
         //Clear out data in text boxes
         ClearDataFromScreen(position);
         //Call some function to Save that players data for future
-        AllPlayers.RemoveAt(position);
+       AllPlayers.RemoveAt(position);
 
     }
     public void CalculateVPIP(int playerNumber)
@@ -102,6 +102,8 @@ public class StatsManager : MonoBehaviour
         curentplayer.PreFlopRaiseCount += 1;
         curentplayer.PreFlopRaisePercent = curentplayer.PreFlopRaiseCount / curentplayer.TotalHandsPlayed * 100.0f;
         UpdatePlayersStats(playerNumber);
+        //If i PFL I also VPIP
+        CalculateVPIP(playerNumber);
     }
     public void CalculateFoldBlinds(int playerNumber)
     {
@@ -179,6 +181,7 @@ public class StatsManager : MonoBehaviour
     }
     public void ClearDataFromScreen(int playerNumber)
     {
+        //Fix this
         Player1PFR.text = "";
         Player1Vpip.text = "";
         Player1FoldBlinds.text = "";
