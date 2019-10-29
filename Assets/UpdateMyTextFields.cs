@@ -35,4 +35,14 @@ public class UpdateMyTextFields : MonoBehaviour
         foldToCbet.text = player.FoldToCBetCount.ToString();
         callCbet.text = player.CallCbetCount.ToString();
     }
+    public void ClearMyTextFields()
+    {
+        totalHands.text = "";
+        Vpip.text = "";
+        PFR.text = "";
+        LimpFold.text = "";
+        foldBlinds.text = "";
+        foldToCbet.text = "";
+        callCbet.text = "";
+    }
 }

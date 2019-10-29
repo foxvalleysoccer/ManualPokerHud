@@ -84,7 +84,7 @@ public class StatsManager : MonoBehaviour
 
 
         //Clear out data in text boxes
-        ClearDataFromScreen(position);
+        //ClearDataFromScreen(position);
         //Call some function to Save that players data for future
        AllPlayers.RemoveAt(position);
 
